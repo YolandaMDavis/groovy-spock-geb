@@ -1,0 +1,6 @@
+[{"name":"House of Targaryen","headOfHouse":{"name":"leader 1","status":"ALIVE","skills":{"FIGHTING":"NOVICE","LITERACY":"EXPERT","DIPLOMACY":"SKILLED","LEADERSHIP":"NOVICE"}},
+"members":[{"name":"member 2","status":"ALIVE","skills":{"FIGHTING":"NOVICE","LITERACY":"EXPERT","DIPLOMACY":"SKILLED","LEADERSHIP":"NOVICE"}}],
+"soldiers":100000},{"name":"House of Baratheon","headOfHouse":{"name":"leader 1","status":"ALIVE","skills":{"FIGHTING":"NOVICE","LITERACY":"EXPERT","DIPLOMACY":"SKILLED","LEADERSHIP":"NOVICE"}},
+"members":[{"name":"member 2","status":"ALIVE","skills":{"FIGHTING":"NOVICE","LITERACY":"EXPERT","DIPLOMACY":"SKILLED","LEADERSHIP":"NOVICE"}}],"soldiers":100000},
+{"name":"House of Lannister","headOfHouse": {"name":"leader 1","status":"ALIVE","skills":{"FIGHTING":"NOVICE","LITERACY":"EXPERT","DIPLOMACY":"SKILLED","LEADERSHIP":"NOVICE"}},
+"members":[{"name":"member 2","status":"ALIVE","skills":{"FIGHTING":"NOVICE","LITERACY":"EXPERT","DIPLOMACY":"SKILLED","LEADERSHIP":"NOVICE"}}],"soldiers":100000}]

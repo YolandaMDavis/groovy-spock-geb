@@ -1,0 +1,63 @@
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: "idea"
+
+sourceCompatibility = 1.5
+version = '1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://repo.springsource.org/release"
+    }
+    maven {
+        url "https://repository.jboss.org/nexus/content/groups/public/"
+    }
+
+}
+
+
+sourceSets {
+    main {
+        groovy {
+            srcDirs = ['src/main/groovy', 'src/main/java']
+        }
+        java {
+            srcDirs = []
+        }
+    }
+}
+
+
+dependencies {
+
+    def gebVersion = "0.10.0"
+    def seleniumVersion = "2.31.0"
+
+    compile "org.codehaus.groovy:groovy-all:2.2.0"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.2.3"
+    testCompile "junit:junit:4.11"
+    testCompile("org.spockframework:spock-core:1.0-groovy-2.0-SNAPSHOT")
+    testCompile "org.gebish:geb-spock:$gebVersion"
+
+    /* for Chrome */
+    testCompile "org.seleniumhq.selenium:selenium-chrome-driver:$seleniumVersion"
+
+    /* for PhantomJS */
+    testCompile "org.seleniumhq.selenium:selenium-remote-driver:$seleniumVersion"
+    testCompile "com.github.detro.ghostdriver:phantomjsdriver:1.0.3"
+
+}
+
+/*requires local version of the chromedriver installed*/
+task testChrome(type:Test){
+    systemProperty "geb.build.reportsDir", "/Users/yolandad/Development/reports/chrome/geb"
+    systemProperty "geb.env", "chrome"
+    systemProperty "webdriver.chrome.driver","/Users/yolandad/Development/tools/drivers/chrome/chromedriver"
+}
+
+test {
+    systemProperty "geb.build.reportsDir", "/Users/yolandad/Development/reports/phantom/geb"
+    systemProperty "geb.env", "phantom"
+}
+
