@@ -4,6 +4,8 @@ import com.ymd.demo.geb.page.YahooHomePage
 import com.ymd.demo.geb.page.YahooSearchResults
 import geb.spock.GebSpec
 import spock.lang.Stepwise
+import spock.lang.Unroll
+
 /**
 * Report lives here : /Users/yolandad/Development/reports/geb
 **/
@@ -14,7 +16,7 @@ import spock.lang.Stepwise
 class YahooSearchSpec extends GebSpec {
 
 
-    def "go to google search page"(){
+    def "go to yahoo home page"(){
 
         when: "I provide the url"
         browser.go("http://www.yahoo.com")
@@ -41,33 +43,28 @@ class YahooSearchSpec extends GebSpec {
         $("div.res")
     }
 
-/*
-    //unroll allow reporting by each individual execution of parameters
     @Unroll
-    def "failed to login to app with #user and #pass"(String user, String pass){
+    def "search Yahoo with #searchText"(String searchText){
 
-        given: "I'm on the login page"
-        to GoogleSearch
+        given:" I'm on the login page"
+        to YahooHomePage
 
-        when: "I provide invalid user credentials"
-        loginForm.with {
-            username = user
-            password = pass
+        when: "I enter valid search criteria and click the search button"
+
+        searchForm.with {
+            p = searchText
         }
-        loginButton.click(GoogleSearch)
+        searchButton.click()
 
-        then: "I will see the login screen with a failed message"
-        at GoogleSearch
-        errorHeading.contains("Failed to login")
 
-        //a datatable can be defined to attempt
+        then: "Then page will display a list of search terms"
+        at YahooSearchResults
+        $("div.res")
+        //a array or datatable can be defined to attempt
         //several parameters to execute against test
         where:
-        user | pass
-        "yolandad@ymd.com"|"whatever"
-        "admin@ymd.com"|"whatever"
+        searchText << ["cat in the hat","avengers","Game of Thrones"]
 
     }
-    */
 
 }

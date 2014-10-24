@@ -31,7 +31,7 @@ sourceSets {
 
 dependencies {
 
-    def gebVersion = "0.10.0"
+    def gebVersion = "0.9.3"
     def seleniumVersion = "2.31.0"
 
     compile "org.codehaus.groovy:groovy-all:2.2.0"
